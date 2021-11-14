@@ -1,0 +1,20 @@
+{
+  "name": "02-web-scraper-in-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mich_Rad <michalra@op.pl>",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^16.11.7",
+    "axios": "^0.24.0",
+    "cheerio": "^1.0.0-rc.10"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/cheerio": "^0.22.30"
+  }
+}
