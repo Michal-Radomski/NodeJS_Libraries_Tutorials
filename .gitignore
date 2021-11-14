@@ -10,6 +10,10 @@ npm-debug.log*
 .env
 .env.test
 
+# next.js
+.next/
+
 # My entries:
 .vscode/
 node_modules/
+
