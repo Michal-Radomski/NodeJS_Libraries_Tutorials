@@ -9,7 +9,6 @@
   "author": "Mich_Rad <michalra@op.pl>",
   "license": "MIT",
   "dependencies": {
-    "@types/node": "^16.11.7",
     "axios": "^0.24.0",
     "cheerio": "^1.0.0-rc.10"
   },
