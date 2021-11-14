@@ -10,26 +10,25 @@ const allProducts = [];
 
 // const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+//- Playwright
 const getHtmlPlaywright = async (url) => {
-  //- Playwright
   const browser = await playwright.firefox.launch();
   const context = await browser.newContext();
   const page = await context.newPage();
   await page.goto(url);
   const html = await page.content();
   await browser.close();
-
   return html;
 };
 
+//- Axios
 const getHtmlAxios = async (url) => {
-  //- Axios
   const {data} = await axios.get(url);
   return data;
 };
 
+//- Choosing Playwright vs Axios
 const getHtml = async (url) => {
-  //- Choosing Playwright vs Axios
   return useHeadless ? await getHtmlPlaywright(url) : await getHtmlAxios(url);
 };
 
@@ -37,7 +36,6 @@ const extractContent = ($) =>
   $(".product")
     .map((_, product) => {
       const $product = $(product);
-
       return {
         id: $product.find("a[data-product_id]").attr("data-product_id"),
         title: $product.find("h2").text(),
@@ -69,7 +67,7 @@ const crawl = async (url) => {
   allProducts.push(...content);
 
   // We can see how the list grows. Gotta catch 'em all!
-  console.log(allProducts.length); // Number of products
+  console.log(allProducts.length); //- Number of products
 };
 
 // Change the default concurrency or pass it as param
@@ -83,7 +81,6 @@ const queue = (concurrency = 4) => {
       if (running >= concurrency) {
         return;
       }
-
       ++running;
       while (tasks.length) {
         const {task, params} = tasks.shift();
@@ -99,11 +96,9 @@ const crawlTask = async (url) => {
     console.log("Over Max Visits, exiting");
     return;
   }
-
   if (visited.has(url)) {
     return;
   }
-
   await crawl(url);
 };
 
