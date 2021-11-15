@@ -24,11 +24,11 @@ export default Home;
 
 function HeroElement({id, name, url}: any) {
   return (
-    <li className="hero-list">
+    <li className="hero-list__element">
       <Link href={`/hero/${id}`}>
-        <a>
-          <img src={url} alt={`Photo of ${name}`} />
-          <p>{name}</p>
+        <a className="hero-list__link">
+          <img src={url} alt={`Photo of ${name}`} className="hero-list__img" />
+          <p className="hero-list__p">{name}</p>
         </a>
       </Link>
     </li>

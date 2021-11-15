@@ -1,0 +1,35 @@
+body {
+  background-color: whitesmoke;
+}
+.container {
+  min-height: 100vh;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  text-align: center;
+}
+
+.hero-list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  border: 1px solid black;
+}
+.hero-list__element:nth-child(even) {
+  background-color: #aaa;
+}
+.hero-list__link {
+  display: flex;
+  align-items: center;
+  .hero-list__img {
+    width: 300px;
+    height: auto;
+  }
+  .hero-list__p {
+    font-size: 5rem;
+    padding: 0 2rem;
+  }
+}

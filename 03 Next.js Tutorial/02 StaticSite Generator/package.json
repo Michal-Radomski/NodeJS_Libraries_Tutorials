@@ -1,5 +1,5 @@
 {
-  "name": "staticsitegen",
+  "name": "static-site-generator",
   "private": true,
   "scripts": {
     "dev": "next dev",
