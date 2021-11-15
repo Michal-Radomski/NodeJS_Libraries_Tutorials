@@ -10,3 +10,5 @@ Files written during tutorials for Node.js libraries
 
 3. 03 Next.js Tutorial -> files created during these tutorials: [part_1](https://www.youtube.com/watch?v=3df3OAxPevo) and
    [part_2](https://www.youtube.com/watch?v=AA0epqPigJQ).
+
+4. 04 Gatsby Tutorial -> files created during this [tutorial](https://www.youtube.com/watch?v=6YhqQ2ZW1sc).
