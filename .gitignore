@@ -16,4 +16,5 @@ npm-debug.log*
 # My entries:
 .vscode/
 node_modules/
+.env
 
