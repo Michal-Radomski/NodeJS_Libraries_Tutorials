@@ -3,7 +3,16 @@ import React from "react";
 
 import Axios from "../../helpers/axios";
 
-export default function Hero({image, name, powerstats}) {
+interface PowerStats {
+  intelligence: string;
+  strength: string;
+  speed: string;
+  durability: string;
+  power: string;
+  combat: string;
+}
+
+export default function Hero({image, name, powerstats}: {image: {url: string}; name: string; powerstats: PowerStats}) {
   const {isFallback} = useRouter();
 
   const {intelligence, strength, speed, durability, power, combat} = powerstats;
@@ -30,7 +39,7 @@ export default function Hero({image, name, powerstats}) {
 export async function getStaticPaths() {
   const {data} = await Axios.get("/search/a");
   const {results} = data;
-  const paths = results.map(({id}) => ({params: {id: id.toString()}}));
+  const paths = results.map(({id}: {id: number}) => ({params: {id: id.toString()}}));
 
   return {
     paths: paths,
@@ -38,7 +47,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({params}) {
+export async function getStaticProps({params}: {params: {id: number}}) {
   // console.log("params:", params);
   const {data} = await Axios.get(`/${params.id}`);
   return {

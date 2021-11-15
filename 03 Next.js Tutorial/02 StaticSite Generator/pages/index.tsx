@@ -4,13 +4,13 @@ import React from "react";
 
 import Axios from "../helpers/axios";
 
-const Home: NextPage = ({isRequestFailed, heroes}: any) => {
+const Home: NextPage = ({isRequestFailed, heroes}: any): JSX.Element => {
   if (isRequestFailed) {
     return <p>Oops, something went wrong... </p>;
   }
   // console.log("isRequestFailed, heroes:", isRequestFailed, heroes);
 
-  const heroesElements = heroes.map((hero: {id: any}) => <HeroElement key={hero.id} {...hero} />);
+  const heroesElements = heroes.map((hero: {id: number}) => <HeroElement key={hero.id} {...hero} />);
 
   return (
     <div className="container">
@@ -22,7 +22,7 @@ const Home: NextPage = ({isRequestFailed, heroes}: any) => {
 
 export default Home;
 
-function HeroElement({id, name, url}: any) {
+function HeroElement({id, name, url}: {id: number; name?: string; url?: string}) {
   return (
     <li className="hero-list__element">
       <Link href={`/hero/${id}`}>
@@ -36,7 +36,7 @@ function HeroElement({id, name, url}: any) {
 }
 
 export async function getStaticProps() {
-  const {data, status}: any = await Axios.get("/search/a");
+  const {data, status} = await Axios.get("/search/a");
 
   if (status !== 200) {
     return {props: {isRequestFailed: true}};
@@ -45,7 +45,11 @@ export async function getStaticProps() {
   // console.log("data:", data);
   const {results} = data;
   // console.log("results:", results);
-  const heroes = results.map(({id, name, image: {url}}: any) => ({id, name, url}));
+  const heroes = results.map(({id, name, image: {url}}: {id: number; name?: string; image: {url: string}}) => ({
+    id,
+    name,
+    url,
+  }));
 
   return {
     props: {
