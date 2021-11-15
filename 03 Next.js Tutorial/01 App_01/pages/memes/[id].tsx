@@ -2,7 +2,7 @@ import {useRouter} from "next/router";
 import React from "react";
 // import Image from "next/image";
 
-export default function Mem({mem}) {
+export default function Mem({mem}: {mem: {url: string; name: string}}): JSX.Element {
   const {back} = useRouter();
   // console.log("Jestem na froncie");
   // console.log(mem);
@@ -15,7 +15,7 @@ export default function Mem({mem}) {
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps(context: {params: {id: string}}) {
   // console.log("context:", context);s
   const {id} = context.params;
   // console.log("id:", id);
@@ -31,10 +31,10 @@ export async function getServerSideProps(context) {
       },
     };
   }
-  const mem = data.memes.find((mem) => mem.id === id);
+  const mem = data.memes.find((mem: {id: string}) => mem.id === id);
   return {
     props: {
-      mem,
+      mem: mem,
     },
   };
 }

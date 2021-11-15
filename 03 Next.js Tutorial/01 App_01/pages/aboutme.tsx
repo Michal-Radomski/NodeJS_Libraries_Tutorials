@@ -1,6 +1,6 @@
 import React from "react";
 
-const AboutMe = () => {
+const AboutMe = (): JSX.Element => {
   return <h1>Info about Me</h1>;
 };
 

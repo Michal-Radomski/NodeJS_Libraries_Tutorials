@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-export default function Memes({memes}) {
+export default function Memes({memes}: {memes: {id: number; name: string; url: string}[]}): JSX.Element {
   const listElements = memes.map((mem) => (
     <li key={mem.id}>
       <Link href={`/memes/${mem.id}`}>
@@ -13,7 +13,8 @@ export default function Memes({memes}) {
   ));
   return (
     <React.Fragment>
-      <h1>Memes</h1>;<ul>{listElements}</ul>
+      <h1>Memes</h1>
+      <ul>{listElements}</ul>
     </React.Fragment>
   );
 }
