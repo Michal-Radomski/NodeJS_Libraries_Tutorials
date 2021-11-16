@@ -58,9 +58,9 @@ exports.createPages = async ({graphql, actions}) => {
   `);
 
   const postTemplate = path.resolve("src/templates/BlogPost.jsx");
-  queryResults.data.allProducts.nodes.forEach((node) => {
+  queryResults.data.allMarkdownRemark.edges.forEach((node) => {
     createPage({
-      path: node.frontmatter.path,
+      path: `${node.frontmatter.path}`,
       component: postTemplate,
     });
   });
