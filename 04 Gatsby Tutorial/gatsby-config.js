@@ -7,13 +7,15 @@ module.exports = {
     "gatsby-plugin-sass",
     "gatsby-plugin-mdx",
     `gatsby-plugin-react-helmet`,
+    "gatsby-plugin-catch-links",
     {
       resolve: "gatsby-source-filesystem",
       options: {
+        path: `${__dirname}/src/pages`,
         name: "pages",
-        path: "./src/pages/",
       },
-      __key: "pages",
+      // __key: "pages",
     },
+    "gatsby-transformer-remark",
   ],
 };
