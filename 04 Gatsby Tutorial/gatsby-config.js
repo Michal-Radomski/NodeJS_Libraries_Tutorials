@@ -1,12 +1,9 @@
 module.exports = {
   siteMetadata: {
-    // siteUrl: "https://www.yourdomain.tld",
-    title: "Gatsby Tutorial",
+    title: "Gatsby Crash Course",
   },
   plugins: [
-    "gatsby-plugin-sass",
-    "gatsby-plugin-mdx",
-    `gatsby-plugin-react-helmet`,
+    "gatsby-plugin-react-helmet",
     "gatsby-plugin-catch-links",
     {
       resolve: "gatsby-source-filesystem",
@@ -14,7 +11,6 @@ module.exports = {
         path: `${__dirname}/src/pages`,
         name: "pages",
       },
-      // __key: "pages",
     },
     "gatsby-transformer-remark",
   ],
