@@ -2,7 +2,7 @@
 path: "/post-one"
 date: "2018-04-09"
 title: "My First Gatsby Post"
-author: "Brad Traversy"
+author: "Prezes Jarek"
 ---
 
-This is my very post in Gatsby
+This is my **_very first post_** in Gatsby.
