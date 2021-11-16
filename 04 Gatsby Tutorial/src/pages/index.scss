@@ -1,0 +1,29 @@
+html {
+  font-family: sans-serif;
+}
+body {
+  background-color: whitesmoke;
+}
+a {
+  background-color: transparent;
+  color: #333;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+mark {
+  background-color: #ff0;
+  color: #000;
+}
+small {
+  font-size: 80%;
+}
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
