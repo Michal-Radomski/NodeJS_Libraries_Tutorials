@@ -12,3 +12,5 @@ Files written during tutorials for Node.js libraries
    [part_2](https://www.youtube.com/watch?v=AA0epqPigJQ).
 
 4. 04 Gatsby Tutorial -> files created during this [tutorial](https://www.youtube.com/watch?v=6YhqQ2ZW1sc).
+
+5. 05 Tensorflow.js Tutorial -> files created during this [tutorial](https://www.youtube.com/watch?v=S_Lg1bVbqY4).
