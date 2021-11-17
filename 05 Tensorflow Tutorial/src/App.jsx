@@ -10,6 +10,8 @@ function App() {
   const [results, setResults] = React.useState([]);
   const [history, setHistory] = React.useState([]);
 
+  // console.log("mobilenet, tf:", mobilenet, tf);
+
   const imageRef = React.useRef();
   const textInputRef = React.useRef();
   const fileInputRef = React.useRef();
@@ -68,7 +70,11 @@ function App() {
 
   // loadModel() is fired only when app is loaded
   React.useEffect(() => {
-    loadModel();
+    tf.ready().then(() => {
+      loadModel();
+    });
+
+    // loadModel();
     // console.log("Model is loading");
   }, []);
 

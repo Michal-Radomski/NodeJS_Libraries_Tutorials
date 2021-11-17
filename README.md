@@ -13,4 +13,5 @@ Files written during tutorials for Node.js libraries
 
 4. 04 Gatsby Tutorial -> files created during this [tutorial](https://www.youtube.com/watch?v=6YhqQ2ZW1sc).
 
-5. 05 Tensorflow.js Tutorial -> files created during this [tutorial](https://www.youtube.com/watch?v=S_Lg1bVbqY4).
+5. 05 Tensorflow.js Tutorial -> files created during this [tutorial](https://www.youtube.com/watch?v=S_Lg1bVbqY4) and this
+   [one](https://towardsdatascience.com/how-to-use-tensorflow-js-in-react-js-object-detection-98b3782f08c2).
