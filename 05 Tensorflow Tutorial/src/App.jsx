@@ -18,6 +18,7 @@ function App() {
     setIsModelLoading(true);
     try {
       const model = await mobilenet.load();
+      console.log("model:", model);
       setModel(model);
       setIsModelLoading(false);
     } catch (error) {
@@ -42,7 +43,9 @@ function App() {
   // Identification
   const identify = async () => {
     textInputRef.current.value = "";
+    console.log("test1");
     const results = await model.classify(imageRef.current, 5);
+    console.log("test2");
     console.log("results:", results);
     setResults(results);
   };
