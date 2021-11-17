@@ -6,7 +6,7 @@ import "./App.scss";
 function App() {
   const [isModelLoading, setIsModelLoading] = React.useState(false);
   const [model, setModel] = React.useState(null);
-  const [imageURL, setImageURL] = React.useState(null);
+  const [imageURL, setImageURL] = React.useState("");
   const [results, setResults] = React.useState([]);
   const [history, setHistory] = React.useState([]);
 
@@ -36,27 +36,27 @@ function App() {
   // Uploading the Image
   const uploadImage = (event) => {
     const {files} = event.target;
-    console.log("files:", files);
+    // console.log("files:", files);
     if (files.length > 0) {
       const url = URL.createObjectURL(files[0]);
-      console.log("url:", url);
+      // console.log("url:", url);
       setImageURL(url);
     } else {
-      setImageURL(null);
+      setImageURL("");
     }
   };
 
   // Identification
   const identify = async () => {
     textInputRef.current.value = "";
-    const results = await model.classify(imageRef.current, 5);
-    console.log("results:", results);
+    const results = await model.classify(imageRef.current, 4);
+    // console.log("results:", results);
     setResults(results);
   };
 
   // Setting up the State from Input type="text"
   const handleOnChange = (event) => {
-    console.log("event, event.target.value:", event, event.target.value);
+    // console.log("event, event.target.value:", event, event.target.value);
     setImageURL(event.target.value);
     setResults([]);
   };
@@ -69,17 +69,18 @@ function App() {
   // loadModel() is fired only when app is loaded
   React.useEffect(() => {
     loadModel();
-    console.log("model is loading");
+    // console.log("Model is loading");
   }, []);
 
   // Creating history of images
   React.useEffect(() => {
     if (imageURL) {
       setHistory([imageURL, ...history]);
-      console.log("imageURL;", imageURL);
+      // console.log("imageURL;", imageURL);
+      // console.log("history:", history);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [history]);
+  }, [imageURL]);
 
   // Loading model info
   if (isModelLoading) {
