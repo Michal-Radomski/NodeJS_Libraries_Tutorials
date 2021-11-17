@@ -1,5 +1,6 @@
 import React from "react";
 import * as mobilenet from "@tensorflow-models/mobilenet";
+import * as tf from "@tensorflow/tfjs";
 import "./App.scss";
 
 function App() {
@@ -19,11 +20,12 @@ function App() {
     try {
       const model = await mobilenet.load();
       if (model) {
-        console.log("model:", model);
+        // console.log("model:", model);
       } else {
         console.log("model not loaded");
       }
       setModel(model);
+      // console.log("model:", model);
       setIsModelLoading(false);
     } catch (error) {
       console.log(error);
@@ -47,9 +49,7 @@ function App() {
   // Identification
   const identify = async () => {
     textInputRef.current.value = "";
-    console.log("test1");
     const results = await model.classify(imageRef.current, 5);
-    console.log("test2");
     console.log("results:", results);
     setResults(results);
   };
