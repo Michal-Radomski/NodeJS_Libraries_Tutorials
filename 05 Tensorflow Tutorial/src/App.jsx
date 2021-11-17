@@ -18,7 +18,11 @@ function App() {
     setIsModelLoading(true);
     try {
       const model = await mobilenet.load();
-      console.log("model:", model);
+      if (model) {
+        console.log("model:", model);
+      } else {
+        console.log("model not loaded");
+      }
       setModel(model);
       setIsModelLoading(false);
     } catch (error) {
@@ -65,6 +69,7 @@ function App() {
   // loadModel() is fired only when app is loaded
   React.useEffect(() => {
     loadModel();
+    console.log("model is loading");
   }, []);
 
   // Creating history of images
