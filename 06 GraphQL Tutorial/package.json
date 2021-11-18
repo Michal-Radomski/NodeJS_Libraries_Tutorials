@@ -1,0 +1,11 @@
+{
+  "name": "06-graphql-tutorial",
+  "version": "1.0.0",
+  "description": "GraphQL Tutorial",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mich_Rad <michalra@op.pl>",
+  "license": "MIT"
+}
