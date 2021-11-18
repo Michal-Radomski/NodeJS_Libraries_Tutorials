@@ -3,18 +3,20 @@ import * as mobilenet from "@tensorflow-models/mobilenet";
 import * as tf from "@tensorflow/tfjs";
 import "./App.scss";
 
-function App() {
+type History = string[];
+
+function App(): JSX.Element {
   const [isModelLoading, setIsModelLoading] = React.useState(false);
-  const [model, setModel] = React.useState(null);
+  const [model, setModel] = React.useState({});
   const [imageURL, setImageURL] = React.useState("");
   const [results, setResults] = React.useState([]);
-  const [history, setHistory] = React.useState([]);
+  const [history, setHistory] = React.useState<History>([]);
 
   // console.log("mobilenet, tf:", mobilenet, tf);
 
-  const imageRef = React.useRef();
-  const textInputRef = React.useRef();
-  const fileInputRef = React.useRef();
+  const imageRef = React.useRef<any>();
+  const textInputRef = React.useRef<any>();
+  const fileInputRef = React.useRef<any>();
 
   // Loading the Model
   const loadModel = async () => {
@@ -36,10 +38,10 @@ function App() {
   };
 
   // Uploading the Image
-  const uploadImage = (event) => {
+  const uploadImage = (event: React.ChangeEvent<HTMLInputElement>) => {
     const {files} = event.target;
     // console.log("files:", files);
-    if (files.length > 0) {
+    if (files && files.length > 0) {
       const url = URL.createObjectURL(files[0]);
       // console.log("url:", url);
       setImageURL(url);
@@ -50,14 +52,15 @@ function App() {
 
   // Identification
   const identify = async () => {
-    textInputRef.current.value = "";
-    const results = await model.classify(imageRef.current, 4);
+    (textInputRef as any).current.value = "";
+
+    const results = await (model as any).classify(imageRef.current, 4);
     // console.log("results:", results);
     setResults(results);
   };
 
   // Setting up the State from Input type="text"
-  const handleOnChange = (event) => {
+  const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     // console.log("event, event.target.value:", event, event.target.value);
     setImageURL(event.target.value);
     setResults([]);
@@ -65,7 +68,9 @@ function App() {
 
   // Adding functionality of input type="file"
   const triggerUpload = () => {
-    fileInputRef.current.click();
+    if (fileInputRef) {
+    }
+    (fileInputRef as any).current.click();
   };
 
   // loadModel() is fired only when app is loaded
@@ -73,8 +78,6 @@ function App() {
     tf.ready().then(() => {
       loadModel();
     });
-
-    // loadModel();
     // console.log("Model is loading");
   }, []);
 
@@ -118,7 +121,7 @@ function App() {
           </div>
           {results.length > 0 && (
             <div className="resultsHolder">
-              {results.map((result, index) => {
+              {(results as any).map((result: any, index: number) => {
                 return (
                   <div className="result" key={result.className}>
                     <span className="name">{result.className}</span>
