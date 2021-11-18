@@ -15,3 +15,5 @@ Files written during tutorials for Node.js libraries
 
 5. 05 Tensorflow.js Tutorial -> files created during this [tutorial](https://www.youtube.com/watch?v=S_Lg1bVbqY4) and this
    [one](https://towardsdatascience.com/how-to-use-tensorflow-js-in-react-js-object-detection-98b3782f08c2).
+
+6. 06 GraphQL.js Tutorial -> files created during this [tutorial](https://www.youtube.com/watch?v=ZQL7tL2S0oQ).
