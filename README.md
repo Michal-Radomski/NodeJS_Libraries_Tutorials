@@ -20,3 +20,6 @@ Files written during tutorials for Node.js libraries
 
 7. 07 Express.js Tutorial -> files created during this [tutorial](https://www.youtube.com/watch?v=SccSCuHhOw0). A migration
    of Node.js app from JS to TS is done according to this [tutorial](https://www.youtube.com/watch?v=kZGzyJWIyBM).
+
+8. 08 Chat App: React, GraphQL & Websocket API -> files created during this
+   [tutorial](https://www.youtube.com/watch?v=E3NHd-PkLrQ).
