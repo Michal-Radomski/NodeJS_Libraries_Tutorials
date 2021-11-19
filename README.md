@@ -18,4 +18,5 @@ Files written during tutorials for Node.js libraries
 
 6. 06 GraphQL.js Tutorial -> files created during this [tutorial](https://www.youtube.com/watch?v=ZQL7tL2S0oQ).
 
-7. 07 Express.js Tutorial -> files created during this [tutorial](https://www.youtube.com/watch?v=SccSCuHhOw0).
+7. 07 Express.js Tutorial -> files created during this [tutorial](https://www.youtube.com/watch?v=SccSCuHhOw0). A migration
+   of Node.js app from JS to TS is done according to this [tutorial](https://www.youtube.com/watch?v=kZGzyJWIyBM).

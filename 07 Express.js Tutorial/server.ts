@@ -1,3 +1,5 @@
+//- To run: ts-node -T server.ts
+
 const express = require("express");
 const app = express();
 
