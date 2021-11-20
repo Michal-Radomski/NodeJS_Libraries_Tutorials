@@ -8,7 +8,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: [".jsx", ".js", ".json"],
+    extensions: [".jsx", ".js", ".json", ".ts", ".tsx"],
   },
 
   devServer: {
@@ -31,6 +31,11 @@ module.exports = {
         use: {
           loader: "babel-loader",
         },
+      },
+      {
+        test: /\.tsx?$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
       },
     ],
   },
