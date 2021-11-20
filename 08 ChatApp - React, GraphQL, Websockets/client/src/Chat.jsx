@@ -39,9 +39,10 @@ const Messages = ({user}) => {
   }
 
   return (
-    <>
+    <React.Fragment>
       {data.messages.map(({id, user: messageUser, content}) => (
         <div
+          key={id}
           style={{
             display: "flex",
             justifyContent: user === messageUser ? "flex-end" : "flex-start",
@@ -77,13 +78,13 @@ const Messages = ({user}) => {
           </div>
         </div>
       ))}
-    </>
+    </React.Fragment>
   );
 };
 
 const Chat = () => {
   const [state, stateSet] = React.useState({
-    user: "Jack",
+    user: "Your name...",
     content: "",
   });
   const [postMessage] = useMutation(POST_MESSAGE);

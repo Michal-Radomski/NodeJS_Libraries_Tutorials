@@ -56,7 +56,7 @@ const pubsub = new PubSub();
 const server = new GraphQLServer({typeDefs, resolvers, context: {pubsub}});
 
 const options = {
-  port: 3000,
+  port: 4000,
 };
 
 server.start(options, ({port}) => {
