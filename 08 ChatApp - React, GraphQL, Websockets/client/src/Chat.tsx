@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import {ApolloClient, InMemoryCache, ApolloProvider, useSubscription, useMutation, gql} from "@apollo/client";
 import {WebSocketLink} from "@apollo/client/link/ws";
 import {Container, Row, Col, FormInput, Button} from "shards-react-fork";
@@ -32,7 +32,7 @@ const POST_MESSAGE = gql`
   }
 `;
 
-const Messages = ({user}) => {
+const Messages = ({user}: {user: string}): JSX.Element => {
   const {data} = useSubscription(GET_MESSAGES);
   if (!data) {
     return null;
@@ -40,7 +40,7 @@ const Messages = ({user}) => {
 
   return (
     <React.Fragment>
-      {data.messages.map(({id, user: messageUser, content}) => (
+      {data.messages.map(({id, user: messageUser, content}: {id: string; user: string; content: string}) => (
         <div
           key={id}
           style={{
@@ -82,7 +82,7 @@ const Messages = ({user}) => {
   );
 };
 
-const Chat = () => {
+const Chat = (): JSX.Element => {
   const [state, stateSet] = React.useState({
     user: "Your name...",
     content: "",
@@ -108,10 +108,10 @@ const Chat = () => {
           <FormInput
             label="User"
             value={state.user}
-            onChange={(evt) =>
+            onChange={(event: {target: {value: string}}) =>
               stateSet({
                 ...state,
-                user: evt.target.value,
+                user: event.target.value,
               })
             }
           />
@@ -120,13 +120,13 @@ const Chat = () => {
           <FormInput
             label="Content"
             value={state.content}
-            onChange={(evt) =>
+            onChange={(event: {target: {value: string}}) =>
               stateSet({
                 ...state,
-                content: evt.target.value,
+                content: event.target.value,
               })
             }
-            onKeyUp={(event) => {
+            onKeyUp={(event: {keyCode: number}) => {
               if (event.keyCode === 13) {
                 onSend();
               }
