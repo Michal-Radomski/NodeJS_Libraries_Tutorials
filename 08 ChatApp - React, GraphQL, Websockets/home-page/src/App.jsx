@@ -7,7 +7,9 @@ import "shards-ui/dist/css/shards.min.css";
 
 import "./index.scss";
 
+//- It doesn't work in TSX
 import Chat from "chat/Chat";
+// console.log("Chat:", Chat);
 
 const App = () => (
   <Container style={{marginTop: "20px"}}>
