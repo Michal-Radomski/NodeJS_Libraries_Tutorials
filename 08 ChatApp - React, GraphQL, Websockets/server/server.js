@@ -3,7 +3,6 @@ const {GraphQLServer, PubSub} = require("graphql-yoga");
 const messages = [];
 
 //- eg. ID! -> field is required
-
 const typeDefs = `
   type Message {
     id: ID!
@@ -60,5 +59,5 @@ const options = {
 };
 
 server.start(options, ({port}) => {
-  console.log(`Server is running on http://localhost:${port}/`);
+  console.log(`Server is running on http://localhost: ${port}/`);
 });

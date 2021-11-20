@@ -10,7 +10,7 @@ import "./index.scss";
 import Chat from "chat/Chat";
 
 const App = () => (
-  <Container>
+  <Container style={{marginTop: "20px"}}>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, nulla eum quis adipisci corrupti earum.</p>
     <h1>Chat!</h1>
     <Chat />
