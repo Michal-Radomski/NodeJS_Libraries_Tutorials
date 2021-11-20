@@ -10,6 +10,10 @@
   "author": "Mich_Rad <michalra@op.pl>",
   "license": "MIT",
   "dependencies": {
+    "@types/node": "^16.11.9",
     "graphql-yoga": "^1.18.3"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.2"
   }
 }

@@ -1,6 +1,14 @@
 const {GraphQLServer, PubSub} = require("graphql-yoga");
 
-const messages = [];
+interface Message {
+  id: number;
+  user: string;
+  content: string;
+}
+
+interface User {}
+
+const messages: Message[] = [];
 
 //- eg. ID! -> field is required
 const typeDefs = `
@@ -20,28 +28,28 @@ const typeDefs = `
   }
 `;
 
-const subscribers = [];
-const onMessagesUpdates = (fn) => subscribers.push(fn);
+const subscribers: string[] = [];
+const onMessagesUpdates = (fn: any) => subscribers.push(fn);
 
 const resolvers = {
   Query: {
     messages: () => messages,
   },
   Mutation: {
-    postMessage: (_parent, {user, content}) => {
+    postMessage: (_parent: any, {user, content}: {user: string; content: string}): number => {
       const id = messages.length;
       messages.push({
         id,
         user,
         content,
       });
-      subscribers.forEach((fn) => fn());
+      subscribers.forEach((fn: any) => fn());
       return id;
     },
   },
   Subscription: {
     messages: {
-      subscribe: (_parent, _args, {pubsub}) => {
+      subscribe: (_parent: any, _args: any, {pubsub}: any) => {
         const channel = Math.random().toString(36).slice(2, 15);
         onMessagesUpdates(() => pubsub.publish(channel, {messages}));
         setTimeout(() => pubsub.publish(channel, {messages}), 0);
@@ -54,10 +62,10 @@ const resolvers = {
 const pubsub = new PubSub();
 const server = new GraphQLServer({typeDefs, resolvers, context: {pubsub}});
 
-const options = {
+const options: {port: number} = {
   port: 4000,
 };
 
-server.start(options, ({port}) => {
+server.start(options, ({port}: {port: number}) => {
   console.log(`Server is running on http://localhost: ${port}/`);
 });
