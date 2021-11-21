@@ -25,4 +25,4 @@ Files written during tutorials for Node.js libraries
    [tutorial](https://www.youtube.com/watch?v=E3NHd-PkLrQ).
 
 9. 09 Weather App with React and GraphQL - Apollo Client -> files created during this
-   [tutorial](https://www.youtube.com/watch?v=BABUMRn47iQ).
+   [tutorial](https://www.youtube.com/watch?v=BABUMRn47iQ); Weather [API](https://graphql-weather-api.herokuapp.com/).
