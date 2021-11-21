@@ -2,7 +2,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.scss";
 import React from "react";
 import Link from "next/link";
-// import createMovie from "./api/movies";
+// import {createMovie} from "./api/movies";
 
 import {PrismaClient} from "@prisma/client";
 
@@ -16,6 +16,7 @@ export default function Home({data}) {
     event.preventDefault();
     setMovies([...movies, formData]);
     const response = await fetch("/api/movies", {
+      // const response = await fetch(createMovie, {
       method: "POST",
       body: JSON.stringify(formData),
     });
