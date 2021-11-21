@@ -4,7 +4,7 @@ import styles from "../../styles/Home.module.scss";
 import {PrismaClient} from "@prisma/client";
 const prisma = new PrismaClient();
 
-export default function Movie({movie}) {
+export default function Movie({movie}: {movie: Movie}): JSX.Element {
   return (
     <div className={styles.container}>
       <Head>
@@ -20,7 +20,7 @@ export default function Movie({movie}) {
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps(context: {query: {slug: string}}) {
   const {slug} = context.query;
 
   const movie = await prisma.movie.findFirst({

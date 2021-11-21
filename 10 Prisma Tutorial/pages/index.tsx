@@ -1,22 +1,21 @@
 import Head from "next/head";
-import styles from "../styles/Home.module.scss";
 import React from "react";
 import Link from "next/link";
-// import {createMovie} from "./api/movies";
-
 import {PrismaClient} from "@prisma/client";
+
+import styles from "../styles/Home.module.scss";
 
 const prisma = new PrismaClient();
 
-export default function Home({data}) {
+export default function Home({data}: Movie[] | any): JSX.Element {
+  // console.log("data:", data);
   const [formData, setFormData] = React.useState({});
   const [movies, setMovies] = React.useState(data);
 
-  async function saveMovie(event) {
+  async function saveMovie(event: React.SyntheticEvent) {
     event.preventDefault();
     setMovies([...movies, formData]);
     const response = await fetch("/api/movies", {
-      // const response = await fetch(createMovie, {
       method: "POST",
       body: JSON.stringify(formData),
     });
@@ -32,8 +31,8 @@ export default function Home({data}) {
       </Head>
 
       <main className={styles.main}>
-        <ul className={styles.movielist}>
-          {movies.map((item) => (
+        <ul className={styles.movieList}>
+          {movies.map((item: Movie) => (
             <li key={item.id}>
               <span>
                 <strong>{item.title}</strong>
@@ -47,12 +46,12 @@ export default function Home({data}) {
           ))}
         </ul>
 
-        <form className={styles.movieform} onSubmit={saveMovie}>
+        <form className={styles.movieForm} onSubmit={saveMovie}>
           <input
             type="text"
             placeholder="Title"
             name="title"
-            onChange={(e) => setFormData({...formData, title: e.target.value})}
+            onChange={(event) => setFormData({...formData, title: event.target.value})}
           />
           <input
             type="text"
@@ -65,8 +64,8 @@ export default function Home({data}) {
           <textarea
             name="description"
             id=""
-            cols="30"
-            rows="10"
+            cols={30}
+            rows={10}
             placeholder="Description"
             onChange={(event) => setFormData({...formData, description: event.target.value})}
           />
@@ -74,7 +73,7 @@ export default function Home({data}) {
             type="text"
             placeholder="Slug"
             name="slug"
-            onChange={(e) => setFormData({...formData, slug: e.target.value})}
+            onChange={(event) => setFormData({...formData, slug: event.target.value})}
           />
           <button type="submit">Add movie</button>
         </form>
