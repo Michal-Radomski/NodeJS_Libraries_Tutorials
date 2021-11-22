@@ -28,3 +28,6 @@ Files written during tutorials for Node.js libraries
    [tutorial](https://www.youtube.com/watch?v=BABUMRn47iQ); Weather [API](https://graphql-weather-api.herokuapp.com/).
 
 10. 10 Prisma Tutorial -> files created during this [tutorial](https://www.youtube.com/watch?v=9qJKmesjTd8).
+
+11. 11 SQLite with Node.js + Sequelize Tutorial -> files created during this
+    [tutorial](https://www.youtube.com/watch?v=bWFuEVmRgdk).
