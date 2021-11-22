@@ -31,3 +31,6 @@ Files written during tutorials for Node.js libraries
 
 11. 11 SQLite with Node.js + Sequelize Tutorial -> files created during this
     [tutorial](https://www.youtube.com/watch?v=bWFuEVmRgdk).
+
+12. 12 JWT + bcrypt with Node.js + Sequelize Tutorial -> files created during this
+    [tutorial](https://www.youtube.com/watch?v=WU_dEBQ9QOA).
