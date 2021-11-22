@@ -5,15 +5,18 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "startDev": "nodemon --exec ts-node index.ts"
   },
   "author": "Mich_Rad <michalra@op.pl>",
   "license": "MIT",
   "dependencies": {
     "@types/express": "^4.17.13",
+    "@types/node": "^16.11.9",
     "@types/sqlite3": "^3.1.7",
     "express": "^4.17.1",
     "sequelize": "^6.12.0-alpha.1",
-    "sqlite3": "^5.0.2"
+    "sqlite3": "^5.0.2",
+    "typescript": "^4.5.2"
   }
 }
