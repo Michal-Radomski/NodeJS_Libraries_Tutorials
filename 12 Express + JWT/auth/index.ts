@@ -1,11 +1,18 @@
-const express = require("express");
-const jwt = require("jsonwebtoken");
+import express from "express";
+import jwt from "jsonwebtoken";
 
 const app = express();
 
 app.use(express.json());
 
-const users = [];
+interface User {
+  id: number;
+  username: string;
+  email: string;
+  password: string;
+}
+
+const users: User[] = [];
 for (let i = 1; i <= 5; i++) {
   const user = {
     id: i,
