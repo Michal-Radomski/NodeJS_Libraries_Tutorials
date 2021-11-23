@@ -1,11 +1,16 @@
-const express = require("express");
+import express from "express";
+import bcrypt from "bcrypt";
+
 const app = express();
-const bcrypt = require("bcrypt");
 
 app.use(express.json());
 
-// const users = [{name: "Michal"}];
-const users = [];
+interface User {
+  name: string;
+  password: string;
+}
+
+const users: User[] = [];
 
 app.get("/users", (_req, res) => {
   res.json(users);
