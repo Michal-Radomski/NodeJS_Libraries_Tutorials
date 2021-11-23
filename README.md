@@ -36,3 +36,5 @@ Files written during tutorials for Node.js libraries
     [tutorial](https://www.youtube.com/watch?v=WU_dEBQ9QOA).
 
 13. 13 Bcrypt with Node.js Tutorial -> files created during this [tutorial](https://www.youtube.com/watch?v=Ud5xKCYQTjM).
+
+14. 14 React-Redux + GraphQL + TS -> files created during this [tutorial](https://www.youtube.com/watch?v=M_Oes39FNuk).
