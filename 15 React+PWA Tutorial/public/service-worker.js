@@ -2,15 +2,15 @@ const CACHE_NAME = "version-1";
 const urlsToCache = ["index.html", "offline.html"];
 
 const self = this;
-console.log("self:", self);
-console.log("CACHE_NAME:", CACHE_NAME);
+// console.log("self:", self);
+// console.log("CACHE_NAME:", CACHE_NAME);
 
 // Install ServiceWorker
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       console.log("Opened cache");
-      console.log("cache:", cache);
+      // console.log("cache:", cache);
       return cache.addAll(urlsToCache);
     })
   );
@@ -29,7 +29,7 @@ self.addEventListener("fetch", (event) => {
 self.addEventListener("activate", (event) => {
   const cacheWhitelist = [];
   cacheWhitelist.push(CACHE_NAME);
-  console.log("cacheWhitelist:", cacheWhitelist);
+  // console.log("cacheWhitelist:", cacheWhitelist);
   event.waitUntil(
     caches.keys().then((cacheNames) =>
       Promise.all(
