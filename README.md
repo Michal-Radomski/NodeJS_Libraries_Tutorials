@@ -41,3 +41,6 @@ Files written during tutorials for Node.js libraries
 
 15. 15 React + PWA Tutorial -> files created during this [tutorial](https://www.youtube.com/watch?v=IaJqMcOMuDM). The
     [OpenWeather API key](https://openweathermap.org/) is not hosted on [github.com](https://github.com/).
+
+16. 16 How To Set Up a Node Project With Typescript -> files created during this
+    [tutorial](https://www.digitalocean.com/community/tutorials/setting-up-a-node-project-with-typescript).
